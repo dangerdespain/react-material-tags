@@ -214,7 +214,9 @@ class Tags extends Component{
       <Chip
         {...otherChip}
         key={key}
-        onRequestDelete={() => this.handleRequestDelete(data, key)}
+        onRequestDelete={ 
+          this.props.preventDeletion ? null : () => this.handleRequestDelete(data, key)
+        }
       >
         {data.label}
     </Chip>
